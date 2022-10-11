@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="PhotonUser"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-10-11 12:30:48 AM"/>
+        <attribute name="created" value="UGhvdG9uVXNlcjtFQzJBTUFaLVNNU0pNTVM7MjAyMi0xMC0xMDsxMTo1OTo1MCBQTTszNDAy"/>
+        <attribute name="edited" value="UGhvdG9uVXNlcjtFQzJBTUFaLVNNU0pNTVM7MjAyMi0xMC0xMTsxMjozMDo0OCBBTTsxOzM0OTM="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="name" type="String" array="False" size=""/>
+            <declare name="depend" type="Real" array="False" size=""/>
+            <declare name="ginc" type="Real" array="False" size=""/>
+            <declare name="aginc" type="Real" array="False" size=""/>
+            <input variable="name"/>
+            <input variable="depend"/>
+            <input variable="ginc"/>
+            <assign variable="aginc" expression="ginc-(depend*12000)"/>
+            <declare name="rate" type="Real" array="False" size=""/>
+            <if expression="aginc&lt;=50000">
+                <then>
+                    <assign variable="rate" expression="0.1"/>
+                </then>
+                <else>
+                    <assign variable="rate" expression="0.2"/>
+                </else>
+            </if>
+            <declare name="tax" type="Real" array="False" size=""/>
+            <assign variable="tax" expression="rate*aginc"/>
+            <declare name="inctax" type="Real" array="False" size=""/>
+            <if expression="tax&lt;0">
+                <then>
+                    <assign variable="inctax" expression="100"/>
+                </then>
+                <else>
+                    <assign variable="inctax" expression="tax"/>
+                </else>
+            </if>
+            <output expression="name &amp; &quot; &quot; &amp; &quot;gross income is &quot; &amp; ginc &amp; &quot; number of dependents is &quot; &amp; depend &amp; &quot; adjusted gross income is &quot; &amp; aginc &amp; &quot; income tax is &quot; &amp; inctax" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
